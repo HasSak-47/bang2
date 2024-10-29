@@ -1,7 +1,7 @@
 {
   "name": "Bangs2",
-  "description" : "To use, type '!bang2' plus a search term into the url bar.",
-  "version": "1.0",
+  "description" : "To use, type '!b2 {ident} {term}' to search {term} something at {ident}",
+  "version": "0.1",
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "52.0a1"
@@ -10,6 +10,9 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "omnibox": { "keyword" : "!bang2" },
+	"permissions" : [
+		"cookies", "storage"
+	],
+  "omnibox": { "keyword" : "!b2" },
   "manifest_version": 2
 }
