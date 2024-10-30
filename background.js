@@ -1,4 +1,6 @@
 
+let database = new Promise(() => null);
+
 /**
 	* @returns {Promise<[Object.<string, {name: string, url: string, format: boolean}>]>}
 	*/
@@ -23,44 +25,62 @@ async function load_db(){
 	return await browser.storage.local.get('bangs');
 }
 
-async function filter(text){ }
+async function input_started(){
+	console.log('database load')
+	database = load_db();
+}
 
-// Update the suggestions whenever the input is changed.
-// browser.omnibox.onInputChanged.addListener(async (text, addSuggestions) => { });
+async function unload_database(){
+	console.log('database unload')
+	database = new Promise(null);
+}
 
-browser.omnibox.onInputEntered.addListener(
-	/**
+async function input_changed(){ }
+
+async function input_canceled(){
+	await unload_database()
+}
+
+
+/**
 	* @param {string} text 
+	* @param {"currentTab" | "newForegroundTab" | "newBackgroundTab" } disposition
 	*/
-	async (text, disposition) => {
-		let split = text.split(' ');
-		let db = (await load_db()).bangs;
-
-		// lmaoooo
-		let site = db.find(p => p.shorthand == split[0])
-		
-		if(site === undefined)
-			return [];
-
-		let url = site.url
-		let k = ''
-		for (let index = 1; index < split.length; ++index)
-			k += split[index];
-
-		if(site.format)
-			url = site.url.replace('{}', k);
-		console.log(url)
-
-		switch (disposition) {
-  	  case "currentTab":
-  	    browser.tabs.update({url});
-  	    break;
-  	  case "newForegroundTab":
-  	    browser.tabs.create({url});
-  	    break;
-  	  case "newBackgroundTab":
-  	    browser.tabs.create({url, active: false});
-  	    break;
-  	}
+async function input_entered(text, disposition){
+	let split = text.split(' ');
+	let db = (await database).bangs;
+	if(db == null){
+		console.log('database not loadead!!');
 	}
-);
+
+	// lmaoooo
+	let site = db.find(p => p.shorthand == split[0])
+	
+	if(site === undefined)
+		return [];
+
+	let url = site.url
+	let k = ''
+	for (let index = 1; index < split.length; ++index)
+		k += split[index];
+
+	if(site.format)
+		url = site.url.replace('{}', k);
+	console.log(url)
+
+	switch (disposition) {
+    case "currentTab":
+      browser.tabs.update({url});
+      break;
+    case "newForegroundTab":
+      browser.tabs.create({url});
+      break;
+    case "newBackgroundTab":
+      browser.tabs.create({url, active: false});
+      break;
+  }
+	unload_database()
+}
+
+browser.omnibox.onInputStarted.addListener( input_started );
+browser.omnibox.onInputEntered.addListener( input_entered );
