@@ -1,5 +1,23 @@
+body{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
 
-#names{
-	display: flex;
-  width: min-content;
+#bang-form {
+    width: min-content;
+}
+
+.bang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bang-row input {
+    margin-left: auto;
+}
+
+#bang-form button{
+    width: 100%;
 }
