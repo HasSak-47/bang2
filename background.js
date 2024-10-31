@@ -1,4 +1,3 @@
-
 let database = new Promise(() => null);
 
 /**
@@ -26,13 +25,18 @@ async function load_db(){
 }
 
 async function input_started(){
-	console.log('database load')
-	database = load_db();
+	const utils_db = await import("./utils/db.js");
+	console.log('util loaded')
+	console.log(utils_db)
+
+	database = await utils_db.load_db();
+	console.log('database loaded')
+	console.log('db: ' + database);
 }
 
 async function unload_database(){
 	console.log('database unload')
-	database = new Promise(null);
+	database = new Promise(() => null);
 }
 
 async function input_changed(){ }
