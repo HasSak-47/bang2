@@ -1,4 +1,5 @@
 
 #names{
-    width: min-content,
+	display: flex;
+  width: min-content;
 }
