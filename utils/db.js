@@ -36,7 +36,7 @@ export async function add_data(name, shorthand, url){
 	let found = bangs.bangs.find((item) => {
 		item.shorthand == shorthand
 	})
-	if(found == undefined){
+	if(found !== undefined){
 		console.warn(`${shorthand} already exists`);
 		return;
 	}
