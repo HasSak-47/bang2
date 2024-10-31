@@ -39,8 +39,6 @@ async function unload_database(){
 	database = new Promise(() => null);
 }
 
-async function input_changed(){ }
-
 async function input_canceled(){
 	await unload_database()
 }
@@ -57,7 +55,6 @@ async function input_entered(text, disposition){
 		console.log('database not loadead!!');
 	}
 
-	// lmaoooo
 	let site = db.find(p => p.shorthand == split[0])
 	
 	if(site === undefined)

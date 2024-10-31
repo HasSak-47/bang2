@@ -1,7 +1,7 @@
 {
   "name": "Bangs2",
   "description" : "To use, type '!b2 {ident} {term}' to search {term} something at {ident}",
-  "version": "0.1",
+  "version": "0.2",
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "58.0"
