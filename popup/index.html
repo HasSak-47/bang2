@@ -6,20 +6,25 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <form id="bang-form">
+    <form id="add-bang">
       <h1>Add Bang2</h1>
-      <div class="bang-row" id="bang-name">
-        Name: <input type="text" name="bang-name" placeholder="example"> 
-      </div>
-      <div class="bang-row" id="bang-shorthand">
-        Shorthand: <input type="text" name="bang-shorthand" placeholder="ex"> 
-      </div>
-      <div class="bang-row" id="bang-url">
-        Url: <input type="text" name="bang-url" placeholder="https://www.example.com/{}"> 
-      </div>
-      <button id="bang-button" type="submit"> Add Bang2! </button>
+      <input class="add-bang-input" type="text" name="bang-name" placeholder="Name: example">
+      <input class="add-bang-input" type="text" name="bang-shorthand" placeholder="Shorthand: ex">
+      <input class="add-bang-input" type="text" name="bang-url" placeholder="Url: https://www.example.com/{}">
+      <button id="add-bang-button" type="submit"> Add Bang2! </button>
     </form>
-		<button type="menu"> open list </button>
+    <div id="list-bang" hidden> </div>
+
+    <div id="search-bang" hidden>
+      <input id="find-bang-shorthand" type="text" name="bang-shorthand" placeholder="Shorthand">
+      <input class="find-bang-name" type="text" name="bang-name" placeholder="Name">
+    </div>
+
+    <div id="options-menu">
+      <button id="option-list" class="menu-button" type="menu"> open list </button>
+      <button id="option-add"  class="menu-button" type="menu"> add bang </button>
+      <button id="option-search" class="menu-button" type="menu"> search bang </button>
+    </div>
   </body>
 </html>
 <script src="script.js"> </script>

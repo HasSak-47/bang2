@@ -1,23 +1,45 @@
+
 body{
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+	text-align: center;
+	padding: 0 0 0 0;
+	margin: auto;
+	width: 400px;
 }
 
-#bang-form {
-    width: min-content;
+h1 {
+	padding-top: 10px;
 }
 
-.bang-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+form#add-bang{
+	width: min-content;
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
 }
 
-.bang-row input {
-    margin-left: auto;
+div#search-bang{
+	width: min-content;
+	display: none;
+	margin: auto;
+	padding: 8px;
 }
 
-#bang-form button{
-    width: 100%;
+div#list-bang{
+	width: min-content;
+	display: none;
+	padding: 8px;
+}
+
+div#options-menu{
+	width: max-content;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.add-bang-input {
+	width: 40ch;
+}
+
+.menu-button button{
+	width: 100%;
 }

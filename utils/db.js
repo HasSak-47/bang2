@@ -1,3 +1,10 @@
+/**
+	* @typedef{{shorthand: string, name: string, url: string, format: boolean}} bangEntry
+	*/
+
+/**
+	* @returns {Promise<{bangs: [bangEntry]}>}
+	*/
 export async function load_db(){
 	console.log('loading bang db')
 	let bangs = await browser.storage.local.get('bangs')
@@ -27,9 +34,6 @@ export async function load_db(){
 	*/
 export async function add_data(name, shorthand, url){
 	let bangs = await load_db();
-	console.log(name);
-	console.log(shorthand);
-	console.log(url);
 	let is_format = url.includes('{}');
 	console.log(bangs);
 	
@@ -38,7 +42,7 @@ export async function add_data(name, shorthand, url){
 	})
 	if(found !== undefined){
 		console.warn(`${shorthand} already exists`);
-		return;
+		return false;
 	}
 
 	bangs.bangs.push({
@@ -49,4 +53,18 @@ export async function add_data(name, shorthand, url){
 	});
 	console.log(bangs);
 	await browser.storage.local.set(bangs)
+
+	return true;
+}
+
+/**
+	* @param { string } name
+	* @param { string } shorthand
+	* @param { string } url
+	*/
+export async function search_bang(name, shorthand, url){
+	let bangs = await load_db();
+	return bangs.bangs.find(e => {
+		return e.name == name || e.shorthand == shorthand || e.url == url;
+	})
 }
