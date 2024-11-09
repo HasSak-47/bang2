@@ -22,7 +22,28 @@ async function add_bang(event) {
 	* @param {string} name
 	*/
 async function search_bang(event, name) {
+}
 
+/**
+	* @param {HTMLElement} element
+	*/
+async function list_bangs(element){
+	while(element.hasChildNodes()){
+		element.childNodes.forEach(e => element.removeChild(e));
+	}
+
+	const db = await import('../utils/db.js');
+	let data = await db.load_db();
+	let entries = data.bangs.map((entry) => {
+		console.log(entry);
+		let element = document.createElement("div")
+		element.innerText = `${entry.shorthand} ${entry.name}`;
+		return element;
+	})
+
+	for (const entry of entries) {
+		element.appendChild(entry);
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,7 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	let search_name = document.getElementById('list-name');
 	let search_bang = document.getElementById('list-bang');
 
+	// list
 	option_list.addEventListener('click', async function() {
+		await list_bangs(list);
 		list.style.display   = 'block';
 		form.style.display   = 'none';
 		search.style.display = 'none';

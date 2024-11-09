@@ -1,7 +1,9 @@
 {
   "name": "Bangs2",
+	"author": "Daniely",
+	"homepage_url": "https://github.com/HasSak-47/bang2",
   "description" : "To use, type '!b2 {ident} {term}' to search {term} something at {ident}",
-  "version": "0.2",
+  "version": "0.3",
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "58.0"
