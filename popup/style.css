@@ -25,9 +25,10 @@ div#search-bang{
 }
 
 div#list-bang{
-	width: min-content;
+	width: max-content;
+	justify-content: center;
 	display: none;
-	padding: 8px;
+	margin: auto;
 }
 
 div#options-menu{
