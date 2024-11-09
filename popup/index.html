@@ -6,6 +6,7 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
+
     <form id="add-bang">
       <h1>Add Bang2</h1>
       <input class="add-bang-input" type="text" name="bang-name" placeholder="Name: example">
@@ -13,19 +14,23 @@
       <input class="add-bang-input" type="text" name="bang-url" placeholder="Url: https://www.example.com/{}">
       <button id="add-bang-button" type="submit"> Add Bang2! </button>
     </form>
+
     <div id="list-bang" hidden> </div>
 
-    <div id="search-bang" hidden>
-      <input id="find-bang-shorthand" type="text" name="bang-shorthand" placeholder="Shorthand">
-      <input class="find-bang-name" type="text" name="bang-name" placeholder="Name">
-			<input class="delete-bang">
-    </div>
+		<div id="search-bang">
+    	<h1>Delete Bang2</h1>
+    	<input id="find-bang-shorthand" type="text" name="bang-shorthand" placeholder="Shorthand">
+    	<input id="find-bang-name" type="text" name="bang-name" placeholder="Name">
+			<button id="search" type="submit" > search </button>
+			<button id="delete" type="submit" > delete </button>
+		</div>
 
     <div id="options-menu">
       <button id="option-list" class="menu-button" type="menu"> open list </button>
       <button id="option-add"  class="menu-button" type="menu"> add bang </button>
       <button id="option-search" class="menu-button" type="menu"> search bang </button>
     </div>
+
   </body>
 </html>
 <script src="script.js"> </script>

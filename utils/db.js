@@ -44,6 +44,9 @@ export async function add_data(name, shorthand, url){
 		console.warn(`${shorthand} already exists`);
 		return false;
 	}
+	if(name == '' && shorthand == '' && ulr == ''){
+		return
+	}
 
 	bangs.bangs.push({
 		name: name,
@@ -62,9 +65,24 @@ export async function add_data(name, shorthand, url){
 	* @param { string } shorthand
 	* @param { string } url
 	*/
-export async function search_bang(name, shorthand, url){
+export async function search_bang(name, shorthand){
 	let bangs = await load_db();
 	return bangs.bangs.find(e => {
-		return e.name == name || e.shorthand == shorthand || e.url == url;
+		console.log(e);
+		console.log(name);
+		console.log(shorthand);
+		return e.name == name || e.shorthand == shorthand;
 	})
+}
+
+/**
+	* @param { string } name
+	* @param { string } shorthand
+	* @param { string } url
+	*/
+export async function delete_bang(shorthand){
+	let bangs = await load_db();
+	bangs.bangs = bangs.bangs.filter(e => e.shorthand != shorthand);
+	browser.storage.local.set( bangs );
+
 }
