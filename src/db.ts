@@ -1,15 +1,17 @@
-/**
-	* @typedef{{shorthand: string, name: string, url: string, format: boolean}} bangEntry
-	*/
+export type Database = BangEntry[];
 
-/**
-	* @returns {Promise<{bangs: [bangEntry]}>}
-	*/
+export type BangEntry = {
+	shorthand: string,
+	name: string,
+	url: string,
+	format: boolean,
+};
+
 export async function load_db(){
 	console.log('loading bang db')
 	let bangs = await browser.storage.local.get('bangs')
 	if(bangs == null || bangs == undefined || Object.keys(bangs).length === 0){
-		browser.storage.local.set({bangs: [
+		browser.storage.local.set([
 			{
 				shorthand: 'drs',
 				name: 'rust docs',
@@ -22,33 +24,29 @@ export async function load_db(){
 				url : 'https://en.wikipedia.org/w/index.php?go=Go&search={}',
 				format: true,
 			},
-		]})
+		])
 	}
-	return await browser.storage.local.get('bangs');
+	let rbangs = await browser.storage.local.get('bangs') as BangEntry[];
+	return rbangs;
 }
 
-/**
-	* @param {string} name
-	* @param {string} shorthand
-	* @param {string} url
-	*/
-export async function add_data(name, shorthand, url){
+export async function add_data(name: string, shorthand: string, url: string){
 	let bangs = await load_db();
 	let is_format = url.includes('{}');
 	console.log(bangs);
 	
-	let found = bangs.bangs.find((item) => {
+	let found = bangs.find(item => {
 		item.shorthand == shorthand
 	})
 	if(found !== undefined){
 		console.warn(`${shorthand} already exists`);
 		return false;
 	}
-	if(name == '' && shorthand == '' && ulr == ''){
-		return
+	if(name == '' && shorthand == '' && url == ''){
+		return false;
 	}
 
-	bangs.bangs.push({
+	bangs.push({
 		name: name,
 		shorthand: shorthand,
 		url: url,
@@ -60,14 +58,9 @@ export async function add_data(name, shorthand, url){
 	return true;
 }
 
-/**
-	* @param { string } name
-	* @param { string } shorthand
-	* @param { string } url
-	*/
-export async function search_bang(name, shorthand){
+export async function search_bang(name: string, shorthand: string){
 	let bangs = await load_db();
-	return bangs.bangs.find(e => {
+	return bangs.find(e => {
 		console.log(e);
 		console.log(name);
 		console.log(shorthand);
@@ -75,14 +68,8 @@ export async function search_bang(name, shorthand){
 	})
 }
 
-/**
-	* @param { string } name
-	* @param { string } shorthand
-	* @param { string } url
-	*/
-export async function delete_bang(shorthand){
+export async function delete_bang(shorthand: string){
 	let bangs = await load_db();
-	bangs.bangs = bangs.bangs.filter(e => e.shorthand != shorthand);
+	bangs = bangs.filter(e => e.shorthand != shorthand);
 	browser.storage.local.set( bangs );
-
 }
