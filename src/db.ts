@@ -65,7 +65,7 @@ export async function search_bang(name: string, shorthand: string){
 		console.log(name);
 		console.log(shorthand);
 		return e.name == name || e.shorthand == shorthand;
-	})
+	});
 }
 
 export async function delete_bang(shorthand: string){
