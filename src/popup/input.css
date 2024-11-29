@@ -1,4 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+    h1 {
+        @apply p-4 text-2xl
+    }
+    input {
+        @apply w-full
+    }
+}
+
+@layer components {
+    .menu-button {
+        @apply rounded border bg-gray-500
+    }
+}
+
+/*
 body{
 	text-align: center;
 	padding: 0 0 0 0;
@@ -44,3 +63,4 @@ div#options-menu{
 .menu-button button{
 	width: 100%;
 }
+*/
