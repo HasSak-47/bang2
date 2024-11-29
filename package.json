@@ -3,6 +3,7 @@
     "@types/chrome": "^0.0.287",
     "@types/firefox": "^0.0.34",
     "@types/firefox-webext-browser": "^120.0.4",
+    "tailwindcss": "^3.4.15",
     "webextension-polyfill": "^0.12.0"
   }
 }
