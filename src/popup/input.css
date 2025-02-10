@@ -4,18 +4,18 @@
 
 @layer base {
     h1 {
-        @apply p-4 text-2xl
+        @apply p-4 text-2xl text-ccol-4
     }
+
     input {
-        @apply w-full
+        @apply w-full text-ccol-3
+    }
+    button {
+        @apply rounded-xl border border-ccol-0 bg-ccol-1 text-ccol-4
     }
 }
 
-@layer components {
-    .menu-button {
-        @apply rounded border bg-gray-500
-    }
-}
+@layer components { }
 
 /*
 body{
