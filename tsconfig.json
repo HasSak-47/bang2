@@ -1,12 +1,12 @@
 {
    "compilerOptions": {
       "strict": true,
-      "module": "commonjs",
-      "target": "es6",
+      "module": "esnext",
+      "target": "esnext",
       "esModuleInterop": true,
       "sourceMap": true,
       "rootDir": "src",
-      "outDir": "dist/js",
+      "outDir": "dist/src",
       "noEmitOnError": true,
       "lib": [ "es2019", "dom", "dom.iterable"],
       "typeRoots": [ "node_modules/@types" ]

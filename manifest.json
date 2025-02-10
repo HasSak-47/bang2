@@ -12,11 +12,11 @@
 
   "browser_action": {
     "default_title": "bang2 entries",
-    "default_popup": "popup/index.html"
+    "default_popup": "src/popup/index.html"
   },
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["src/background.js"]
   },
   "permissions" : [
     "cookies",

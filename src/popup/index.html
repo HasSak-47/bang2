@@ -6,16 +6,16 @@
     <link href="output.css" rel="stylesheet">
   </head>
   <body
-    class="text-center w-400px m-auto p-0 ccol-0"
+    class="text-center w-400px bg-ccol-0 p-1 b-1 m-1"
   >
 
     <form id="add-bang" class="">
       <h1>Add Bang2</h1>
-      <input class="add-bang-input" type="text" name="bang-name" placeholder="Name: example" />
-      <input class="add-bang-input" type="text" name="bang-shorthand" placeholder="Shorthand: ex" />
-      <input class="add-bang-input w-full" type="text" name="bang-url" placeholder="Url: https://www.example.com/{}" />
+      <input class="add-bang-input m-px" type="text" name="bang-name" placeholder="Name: example" />
+      <input class="add-bang-input m-px" type="text" name="bang-shorthand" placeholder="Shorthand: ex" />
+      <input class="add-bang-input m-px" type="text" name="bang-url" placeholder="Url: https://www.example.com/{}" />
       <button
-        class="w-full"
+        class="w-full mt-1"
         id="add-bang-button"
         type="submit" /> Add Bang2! </button>
     </form>
@@ -40,11 +40,11 @@
       class="w-full grid grid-flow-row grid-cols-3 grid-rows-1"
       id="options-menu" />
 
-      <button id="option-list" class="menu-button" type="menu"> open list </button>
+      <button id="option-list" class="menu-button mr-1" type="menu"> open list </button>
       <button id="option-add" class="menu-button" type="menu"> add bang </button>
-      <button id="option-search" class="menu-button" type="menu"> search bang </button>
+      <button id="option-search" class="menu-button ml-1" type="menu"> search bang </button>
     </div>
 
   </body>
 </html>
-<script src="script.js"> </script>
+<script type="module" src="script.js"> </script>
