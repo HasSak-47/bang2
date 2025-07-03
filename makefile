@@ -1,9 +1,28 @@
-package: build build-js
-	zip -r extension.zip dist
+PACKAGE := extension.zip
 
-build:
-	cp -r src/ dist/src
-	cp manifest.json dist/manifest.json
+SRC_DIR := src
+DIST_DIR := dist
+
+TS_CONFIG := tsconfig.json
+
+.PHONY: package build build-js clean
+
+package: build build-js
+	zip -r $(PACKAGE) $(DIST_DIR)
+
+build: prepare-dist copy-src copy-manifest
 
 build-js:
-	tsc --project tsconfig.json
+	tsc --project $(TS_CONFIG)
+
+prepare-dist:
+	@mkdir -p $(DIST_DIR)
+
+copy-src:
+	cp -r $(SRC_DIR)/ $(DIST_DIR)/$(SRC_DIR)/
+
+copy-manifest:
+	cp manifest.json $(DIST_DIR)/manifest.json
+
+clean:
+	@rm -rf $(DIST_DIR) $(PACKAGE)

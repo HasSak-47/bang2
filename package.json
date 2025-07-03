@@ -1,9 +1,38 @@
 {
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
     "@types/chrome": "^0.0.287",
     "@types/firefox": "^0.0.34",
     "@types/firefox-webext-browser": "^120.0.4",
-    "tailwindcss": "^3.4.15",
     "webextension-polyfill": "^0.12.0"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "@types/chrome": "^0.0.287",
+    "@types/firefox": "^0.0.34",
+    "@types/firefox-webext-browser": "^120.0.4",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "name": "bang2",
+  "version": "1.0.0",
+  "description": "This firefox extensions creates custom search shortcuts called \"bangs\" (like a shebang) that can be used in the address bar. These bangs redirect to specific URLS with or without earch queries. it is based in duckduckgo's bangs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HasSak-47/bang2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "gplv2",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HasSak-47/bang2/issues"
+  },
+  "homepage": "https://github.com/HasSak-47/bang2#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
   }
 }

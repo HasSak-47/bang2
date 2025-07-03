@@ -16,7 +16,8 @@
   },
 
   "background": {
-    "scripts": ["src/background.js"]
+    "scripts": ["src/background.js"],
+    "type": "module"
   },
   "permissions" : [
     "cookies",
