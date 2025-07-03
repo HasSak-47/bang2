@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="output.css" rel="stylesheet">
+  <head class="min-h-fit min-w-fit">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Bang Manager</title>
   </head>
-  <body
-    class="text-center w-400px bg-ccol-0 p-1 b-1 m-1"
-  >
+  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
 
-    <form id="add-bang" class="">
-      <h1>Add Bang2</h1>
-      <input class="add-bang-input m-px" type="text" name="bang-name" placeholder="Name: example" />
-      <input class="add-bang-input m-px" type="text" name="bang-shorthand" placeholder="Shorthand: ex" />
-      <input class="add-bang-input m-px" type="text" name="bang-url" placeholder="Url: https://www.example.com/{}" />
-      <button
-        class="w-full mt-1"
-        id="add-bang-button"
-        type="submit" /> Add Bang2! </button>
+    <!-- Header -->
+    <header class="text-2xl font-bold mb-6">Bang Manager</header>
+
+    <!-- Menu Buttons -->
+    <div id="options-menu" class="flex space-x-2 mb-6">
+      <button id="option-list" class="px-4 py-2 bg-white rounded shadow hover:bg-gray-200 transition">List</button>
+      <button id="option-add" class="px-4 py-2 bg-white rounded shadow hover:bg-gray-200 transition">Add</button>
+      <button id="option-search" class="px-4 py-2 bg-white rounded shadow hover:bg-gray-200 transition">Search</button>
+    </div>
+
+    <!-- Add Bang Form -->
+    <form id="add-bang" class="w-full max-w-md bg-white p-6 rounded shadow space-y-4 hidden">
+      <h2 class="text-xl font-semibold">Add Bang</h2>
+      <input type="text" name="bang-name" placeholder="Name: example"
+        class="w-full p-2 border rounded focus:outline-none focus:ring" />
+      <input type="text" name="bang-shorthand" placeholder="Shorthand: ex"
+        class="w-full p-2 border rounded focus:outline-none focus:ring" />
+      <input type="text" name="bang-url" placeholder="URL: https://example.com/{}"
+        class="w-full p-2 border rounded focus:outline-none focus:ring" />
+      <button type="submit"
+        class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Add Bang</button>
     </form>
 
-    <div id="list-bang" class="hidden"> <h1> List Bang2 </h1> </div>
-
-	<div id="search-bang" class="hidden">
-      <h1>Delete Bang2</h1>
-      <input id="find-bang-shorthand" type="text" name="bang-shorthand" placeholder="Shorthand">
-      <input id="find-bang-name" type="text" name="bang-name" placeholder="Name">
-      <button
-        class="w-1/2"
-        id="search"
-        type="submit" > search </button>
-      <button
-        class="w-1/2"
-        id="delete"
-        type="submit" > delete </button>
+    <!-- List Bangs -->
+    <div id="list-bang" class="w-full max-w-md bg-white p-6 rounded shadow hidden">
+			penis penis penis
+      <h2 class="text-xl font-semibold mb-2">List of Bangs</h2>
+      <div class="text-sm text-gray-600 italic">No items yet.</div>
     </div>
 
-    <div
-      class="w-full grid grid-flow-row grid-cols-3 grid-rows-1"
-      id="options-menu" />
-
-      <button id="option-list" class="menu-button mr-1" type="menu"> open list </button>
-      <button id="option-add" class="menu-button" type="menu"> add bang </button>
-      <button id="option-search" class="menu-button ml-1" type="menu"> search bang </button>
+    <!-- Search/Delete -->
+    <div id="search-bang" class="w-full max-w-md bg-white p-6 rounded shadow space-y-4 hidden">
+      <h2 class="text-xl font-semibold">Search / Delete Bang</h2>
+      <input type="text" id="find-bang-shorthand" name="bang-shorthand" placeholder="Shorthand"
+        class="w-full p-2 border rounded focus:outline-none focus:ring" />
+      <input type="text" id="find-bang-name" name="bang-name" placeholder="Name"
+        class="w-full p-2 border rounded focus:outline-none focus:ring" />
+      <div class="flex space-x-2">
+        <button id="search" type="button"
+          class="w-1/2 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Search</button>
+        <button id="delete" type="button"
+          class="w-1/2 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">Delete</button>
+      </div>
     </div>
 
+    <script type="module" src="./script.js"></script>
+		<div class="text-sm italic text-gray-600 grid grid-cols-3 gap-4 font-semibold border-b border-gray-300 pb-2 mb-2 grid grid-cols-3 gap-4 py-1 border-b border-gray-200 hidden"  > </ div>
   </body>
 </html>
-<script type="module" src="script.js"> </script>
